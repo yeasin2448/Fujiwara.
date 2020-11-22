@@ -594,7 +594,7 @@ form button.custom-btn {
   }
 }
 
-header .header-bg .header-item, .footer-menu-item, .footer-menu-item .footer-menu ul.menu-list, .our-product .section-wrapper .product-itme.style-one {
+header .header-bg .header-item, .footer-menu-item, .footer-menu-item .footer-menu ul.menu-list, .banner-area .wrapper .your-slider .your-slider-item .banner-position, .our-product .section-wrapper .product-itme.style-one {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1027,13 +1027,20 @@ header .header-bg.menu-fixed {
 .banner-area {
   overflow: hidden;
   position: relative;
+  height: 300px;
 }
 
-.banner-area .banner-slider {
+@media (min-width: 768px) {
+  .banner-area {
+    height: 470px;
+  }
+}
+
+.banner-area .wrapper {
   overflow: hidden;
 }
 
-.banner-area .banner-slider .swiper-wrapper .overlay {
+.banner-area .wrapper .your-slider .overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -1044,36 +1051,36 @@ header .header-bg.menu-fixed {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.banner-area .banner-slider .swiper-wrapper .swiper-slide {
+.banner-area .wrapper .your-slider .your-slider-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 300px;
   background-size: cover;
   background-position: center;
 }
 
-@media (min-width: 768px) {
-  .banner-area .banner-slider .swiper-wrapper .swiper-slide {
-    min-height: 470px;
-  }
-}
-
-.banner-area .banner-slider .swiper-wrapper .swiper-slide .banner-position {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.banner-area .wrapper .your-slider .your-slider-item .banner-position {
+  height: 300px;
   position: relative;
-  z-index: 1;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
 }
 
-.banner-area .banner-slider .swiper-wrapper .swiper-slide .banner-position .banner-content {
+@media (min-width: 768px) {
+  .banner-area .wrapper .your-slider .your-slider-item .banner-position {
+    height: 470px;
+  }
+}
+
+.banner-area .wrapper .your-slider .your-slider-item .banner-position .banner-content {
   height: 100px;
   width: 100px;
   text-align: center;
@@ -1082,20 +1089,138 @@ header .header-bg.menu-fixed {
 }
 
 @media (min-width: 576px) {
-  .banner-area .banner-slider .swiper-wrapper .swiper-slide .banner-position .banner-content {
+  .banner-area .wrapper .your-slider .your-slider-item .banner-position .banner-content {
     height: 200px;
     width: 200px;
   }
 }
 
-.banner-area .banner-slider .swiper-wrapper .swiper-slide .banner-position .banner-content h1 {
+.banner-area .wrapper .your-slider .your-slider-item .banner-position .banner-content h1 {
   margin: 0;
   color: #fff;
   border: 1px solid #fff;
 }
 
-.banner-area .banner-slider .swiper-pagination.swiper-pagination-progressbar.swiper-pagination-progressbar span.swiper-pagination-progressbar-fill {
-  background: #111a98 !important;
+.carouselLineArrow-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.carouselLineArrow-line .carouselLineArrow-innerline {
+  background-color: #545aad !important;
+  height: 100%;
+  width: 0%;
+}
+
+.carouselLineArrow-arrow {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: .3s;
+  transition: .3s;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.carouselLineArrow-arrow:hover {
+  background-color: white;
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-left {
+  left: -50px;
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-left:hover .carouselLineArrow-arrow-inner {
+  -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-left .carouselLineArrow-arrow-inner {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-left .carouselLineArrow-arrow-inner:before {
+  position: absolute;
+  content: '';
+  background-color: #060933;
+  height: 5px;
+  width: 30px;
+  top: 50%;
+  right: 5px;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-left .carouselLineArrow-arrow-inner:after {
+  position: absolute;
+  content: '';
+  height: 0px;
+  width: 0px;
+  border: 10px solid transparent;
+  border-right: 10px solid #060933;
+  top: 50%;
+  right: 34px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-right {
+  right: -50px;
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-right:hover .carouselLineArrow-arrow-inner {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-right .carouselLineArrow-arrow-inner {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-right .carouselLineArrow-arrow-inner:before {
+  position: absolute;
+  content: '';
+  background-color: #060933;
+  height: 5px;
+  width: 30px;
+  top: 50%;
+  left: 5px;
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+}
+
+.carouselLineArrow-arrow.carouselLineArrow-arrow-right .carouselLineArrow-arrow-inner:after {
+  position: absolute;
+  content: '';
+  height: 0px;
+  width: 0px;
+  border: 10px solid transparent;
+  border-left: 10px solid #060933;
+  top: 50%;
+  left: 34px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.carousel-wrapper-middle:hover .carouselLineArrow-arrow.carouselLineArrow-arrow-left {
+  left: 20px;
+}
+
+.carousel-wrapper-middle:hover .carouselLineArrow-arrow.carouselLineArrow-arrow-right {
+  right: 20px;
 }
 
 .our-services {
