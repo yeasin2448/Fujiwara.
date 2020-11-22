@@ -1,0 +1,62 @@
+//*====== banner-area css start =====*//
+.banner-area {
+    overflow: hidden;
+    position: relative;
+    .banner-slider {
+        overflow: hidden;
+        .swiper-wrapper {
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.6);
+            }
+            .swiper-slide {
+                display: flex;
+                align-items: center;
+                min-height: 300px;
+                background-size: cover;
+                background-position: center;
+                @include breakpoint(md) {
+                    min-height: 470px;
+                }
+                .banner-position {
+                    display: flex;
+                    position: relative;
+                    z-index: 1;
+                    justify-content: center;
+                    .banner-content {
+                        height: 100px;
+                        width: 100px;
+                        text-align: center;
+                        border-radius: 100%;
+                        border: 2px solid $white-color;
+                        @include breakpoint (sm) {
+                            height: 200px;
+                            width: 200px;
+                        }
+                        h1 {
+                            margin: 0;
+                            color: $white-color;
+                            border: 1px solid $white-color;
+                        }
+                    }
+                }
+            }
+        }
+        .swiper-pagination {
+            &.swiper-pagination-progressbar {
+                &.swiper-pagination-progressbar {
+                    span.swiper-pagination-progressbar-fill {
+                        background: #111a98 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+//*====== banner-area css ends  =====*//

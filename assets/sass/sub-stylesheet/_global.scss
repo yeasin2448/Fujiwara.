@@ -1,0 +1,590 @@
+/*!
+<----------------------------------------
+  Theme Name: Fujiwara
+  Theme URI: http://pikt.jp
+  Author: pikt.jp.
+  Author URI: http://pikt.jp
+  Description: Fujiwara  is a Creative HTML5 Template for Saas, Startup & any ytpe of confarence.
+  Version: 1.0.0
+  Tags: app, Fujiwara landing page, app landing page, app showcase template, application services, gradient color, landing, marketing, responsive template, seo, software, Software Services, startup, tech, web application landing page.
+---------------------------------------->
+*/
+/*
+>>> TABLE OF CONTENTS:
+<----------------------------------------------------------------
+  01. Default CSS
+  02. Global css
+  03. Header
+  04. sidebar menu
+  05. Banner
+   a. style-one
+  06. About
+  07. Counterup
+   a. style-one
+  08. Experiance
+   a. style-one
+  09. Education
+  10. Services
+   a. style-one
+  11. My-works
+  12. Blog
+   a. style-one
+  13. Testimonial
+  14. Contact
+---------------------------------------------------------------->
+
+
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+body,
+button,
+input,
+select,
+textarea {
+	color: $desc-color;
+	font-family: $roboto;
+	font-size: 1rem;
+	font-weight: 400;
+	outline: none;
+    border: none;
+    overflow-x: hidden;
+    background: #fff;
+}
+h1 {
+	font-size: $fs-h2;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 24px;
+}
+h4 {
+	font-size: $fs-h4;
+}
+h5 {
+ 	font-size: $fs-h5;
+}
+h6 {
+	font-size: $fs-h6;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: $title-color;
+	font-weight: 700;
+	font-family: $roboto;
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+h1>a, h2>a, h3>a, h4>a, h5>a, h6>a {
+	color: inherit;
+	font-size: inherit;
+	font-weight: 700;
+	font-family: $roboto;
+}
+
+@media screen and (min-width: 576px) {
+	h1 {
+	    font-size: $fs-h1;
+	}
+	h2 {
+	    font-size: $fs-h2;
+	}
+	h3 {
+	    font-size: $fs-h3;
+	}
+	h4 {
+	    font-size: $fs-h4;
+	}
+	h5 {
+	    font-size: $fs-h5;
+	}
+	h6 {
+	    font-size: $fs-h6;
+	}
+}
+
+p {
+	font-size: $fs-small-x;
+	margin: 0 0 15px;
+	color: $title-color;
+	line-height: 1.5;
+	font-family: $roboto;
+}
+
+a {
+	color: $desc-color;
+	text-decoration: none;
+	display: inline-block;
+	outline: none;
+    @include transition($transition);
+    &:hover {
+        text-decoration: none;
+    }
+}
+a:focus {
+	outline: none;
+}
+a:hover,
+a:active {
+	color: #000;
+	outline: 0;
+}
+img,
+video {
+	height: auto;
+	max-width: 100%;
+	@include transition($transition);
+}
+
+
+.body-padding {
+    @include breakpoint(lg) {
+        padding-top: 100px;
+    }
+}
+
+//#=== box layout width ===#//
+.box-layout {
+    width: calc(100% - 60px);
+    float: right;
+    @include breakpoint (sm) {
+        width: calc(100% - 80px);
+    }
+}
+//#=== box layout width ===#//
+
+/* Placeholder text color -- selectors need to be separate to work. */
+::-webkit-input-placeholder {
+	color: $desc-color;
+	font-family: $roboto;
+}
+:-moz-placeholder {
+	color: $desc-color;
+	font-family: $roboto;
+}
+::-moz-placeholder {
+	color: $desc-color;
+	font-family: $roboto;
+	opacity: 1;
+}
+:-ms-input-placeholder {
+	color: $desc-color;
+	font-family: $roboto;
+}
+
+
+/*-- all custom btn css --*/
+button.btn {
+    display: inline-table;
+    @extend %shadow;
+}
+.btn{
+    background: $common-bg;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 25px;
+    position: relative;
+    @extend %shadow;
+    &:focus {
+        box-shadow: none;
+    }
+    &:hover {
+        transition: all 0.3s ease-in-out;
+        background: linear-gradient(90deg, #6270ff, #79ccff);
+        span, i {
+            color: $white-color;
+        }
+    }
+    span {
+        text-transform: uppercase;
+        i {
+            color: $white-color;
+        }
+    }
+    .btn-ripple{
+        background: rgba(255, 255, 255, 0.3);
+        position: absolute;
+        border-radius: 100%;
+        animation: ripple 1s;
+        transform: scale(0);
+    }
+}
+/*-- all custom btn css --*/
+
+//?==== common post item css ===?//
+.post-item {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: translateY(-5px);
+    }
+    .post-text {
+        h4 {
+            margin: 0;
+            font-size: 20px;
+            padding: 20px 0 25px;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+//?==== common post item css ===?//
+
+/*===== common slider arrow css start =====*/
+.arrow-pagination {
+    position: relative;
+    .next, .prev {
+       position: absolute;
+       top: -80px;
+       z-index: 9;
+       text-align: center;
+       cursor: pointer;
+       &:hover {
+           span {
+               background: $theme-color;
+               i {
+                  color: $white-color
+               }
+           }
+       }
+       &.swiper-button-disabled {
+           cursor: no-drop;
+           span {
+               background: #cc1010;
+               i {
+                   color: #333;
+               }
+           }
+       }
+       span {
+           height: 32px;
+           width: 32px;
+           line-height: 32px;
+           background: #e1e1e1;
+           display: inline-block;
+           @include transition ($transition);
+           i {
+               font-size: 20px;
+           }
+       }
+   }
+   .next {
+       right: 0;
+   }
+   .prev {
+       right: 40px;
+   }
+}
+/*===== common slider arrow css ends =====*/
+
+//*==== common content & section header css =====*//
+.section-header {
+    text-align: center;
+    h3, h4 {
+        margin: 0;
+        font-weight: 300;
+    }
+    p {
+        color: $primary-color;
+        font-size: 14px;
+        max-width: 550px;
+        margin: 0 auto;
+        padding-top: 24px;
+        text-align: left;
+    }
+}
+//*==== common content & section header css =====*//
+
+
+//#==== form css start ====#//
+form {
+    .input-group {
+        position: relative;
+        input {
+            &.form-control {
+                width: 100%;
+                height: 40px;
+                font-size: 14px;
+                padding-left: 35px;
+                border: 1px solid $theme-color;
+                border-radius: 3px;
+                background: transparent;
+                transition: all 0.3s ease-in-out;
+                &::placeholder {
+                    font-size: 12px;
+                    color: $theme-color;
+                    transition: all 0.3s ease-in-out;
+                }
+                &:focus {
+                    border: 1px solid #000;
+                    box-shadow: none;
+                    &::placeholder {
+                        color: #000;
+                        padding-left: 5px;
+                    }
+                    ~ i {
+                        color: #000;
+                        svg {
+                            g {
+                            path {
+                                fill: #000;
+                            }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            color: $theme-color;
+            z-index: 9;
+            transform: translateY(-50%);
+            &.view_pass {
+                left: auto;
+                right: 10px;
+                cursor: pointer;
+            }
+        }
+        label {
+            position: absolute;
+            font-size: 12px;
+            top: 30%;
+            left: 30px;
+            opacity: 0;
+            padding: 0 5px;
+            background: #fff;
+            z-index: 111;
+            transition: all 0.3s ease-in-out;
+            &.control-label {
+                opacity: 1;
+                top: -20px;
+                left: 0;
+                &.h6 {
+                    @include breakpoint (sm) {
+                        top: -25px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        textarea {
+            padding: 10px;
+            width: 100%;
+            font-size: 12px;
+            height: 100px !important;
+            border: 1px solid $theme-color;
+            border-radius: 3px;
+            background: transparent;
+            transition: all 0.3s ease-in-out;
+            &::placeholder {
+                color: $theme-color;
+                font-size: 14px;
+                transition: all 0.3s ease-in-out;
+            }
+            &:focus {
+                border-color: #000;
+                &::placeholder {
+                    color: #000;
+                    padding-left: 5px;
+                }
+            }
+        }
+        .controls {
+            select {
+                height: 40px;
+                border: 1px solid $theme-color;
+            }
+        }
+
+    }
+    button {
+        &.custom-btn {
+            margin-top: 20px;
+        }
+    }
+}
+.input-group  > input:not(:placeholder-shown) ~ label {
+    top: -12px;
+    left: 10px;
+    opacity: 1;
+    padding: 5px;
+}
+//#==== form css end ====#//
+
+/*======= all scrollbar css =====*/
+.overflow-auto::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+.overflow-auto::-webkit-scrollbar {
+    width: 5px;
+}
+.overflow-auto::-webkit-scrollbar-thumb {
+    background-color: $theme-color;
+    border-radius: 5px;
+}
+/*======= all scrollbar css =====*/
+
+@keyframes preloader-fx {
+    0% {
+        -webkit-transform: scale(0, 0);
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes preloader-fx {
+    0% {
+        -webkit-transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        -webkit-transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+
+%flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+%absolute {
+    position: absolute;
+    content: '';
+}
+
+
+%shadow {
+    -webkit-box-shadow: 3px 0 35px rgba(0, 0, 0, .35);
+    box-shadow: 3px 0 35px rgba(0, 0, 0, .35);
+}
+
+%border {
+    border: 10px solid #ed4a4382;
+}
+
+%widget-mt {
+    margin-top: 35px;
+}
+
+%widget-pad {
+    padding: 20px 20px 30px;
+}
+
+
+//? common social media
+.btn-facebook {
+    background: $facebook;
+    &:hover {
+        background: $white-color;
+        border: 1px solid $facebook !important;
+        i {
+            color: $facebook;
+        }
+    }
+    i {
+        color: $white-color;
+    }
+}
+
+.btn-twitter {
+    background: $twitter;
+    border: 1px solid !important;
+    i {
+        color: $white-color
+    }
+    &:hover {
+        background: $white-color;
+        i {
+            color: $twitter;
+        }
+    }
+}
+
+.btn-twitter-sm {
+    background: $twitter;
+    &:hover {
+        background: $white-color;
+        border: 1px solid $twitter;
+        i {
+            color: $twitter;
+        }
+    }
+    i {
+        color: $white-color;
+    }
+}
+
+.btn-google {
+    background: $google;
+    &:hover {
+        background: $white-color;
+        border: 1px solid $google !important;
+        i {
+            color: $google;
+        }
+    }
+    i {
+        color: $white-color;
+    }
+}
+
+.btn-github {
+    background: slategray;
+    &:hover {
+        background: $white-color;
+        border: 1px solid $google !important;
+        i {
+            color: $google;
+        }
+    }
+    i {
+        color: $white-color;
+    }
+
+}
+
+.btn-linkedin {
+    background: $linkedin;
+    &:hover {
+        background: $white-color;
+        border: 1px solid $linkedin !important;
+        i {
+            color: $linkedin;
+        }
+    }
+    i {
+        color: $white-color;
+    }
+}
+
+//? all media padding
+
