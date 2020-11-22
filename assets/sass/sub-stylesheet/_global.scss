@@ -143,22 +143,6 @@ video {
 	max-width: 100%;
 	@include transition($transition);
 }
-
-
-.body-padding {
-    @include breakpoint(lg) {
-        padding-top: 100px;
-    }
-}
-
-//#=== box layout width ===#//
-.box-layout {
-    width: calc(100% - 60px);
-    float: right;
-    @include breakpoint (sm) {
-        width: calc(100% - 80px);
-    }
-}
 //#=== box layout width ===#//
 
 /* Placeholder text color -- selectors need to be separate to work. */
@@ -185,9 +169,12 @@ video {
 button.btn {
     display: inline-table;
     @extend %shadow;
+    &:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 }
 .btn{
-    background: $common-bg;
     font-size: 14px;
     color: #fff;
     padding: 10px 25px;
@@ -200,15 +187,15 @@ button.btn {
     overflow: hidden;
     border-radius: 25px;
     position: relative;
-    @extend %shadow;
+    background: $theme-color;
     &:focus {
         box-shadow: none;
     }
     &:hover {
         transition: all 0.3s ease-in-out;
-        background: linear-gradient(90deg, #6270ff, #79ccff);
+        background: #79ccff;
         span, i {
-            color: $white-color;
+            color: #000;
         }
     }
     span {
@@ -217,14 +204,25 @@ button.btn {
             color: $white-color;
         }
     }
-    .btn-ripple{
+    .btn-ripple
+    {
         background: rgba(255, 255, 255, 0.3);
         position: absolute;
         border-radius: 100%;
-        animation: ripple 1s;
+        animation: ripple
+         1s;
         transform: scale(0);
     }
 }
+
+//?======= all keyframes css start =====?//
+@keyframes ripple {
+    100%{
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+//?======= all keyframes css ends  =====?//
 /*-- all custom btn css --*/
 
 //?==== common post item css ===?//
@@ -299,6 +297,11 @@ button.btn {
     h3, h4 {
         margin: 0;
         font-weight: 300;
+    }
+    h3 {
+        @include breakpoint (md) {
+            font-size: 24px;
+        }
     }
     p {
         color: $primary-color;
@@ -430,15 +433,16 @@ form {
 }
 //#==== form css end ====#//
 
+
 /*======= all scrollbar css =====*/
-.overflow-auto::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 5px;
 }
-.overflow-auto::-webkit-scrollbar {
-    width: 5px;
+::-webkit-scrollbar {
+    width: 8px;
 }
-.overflow-auto::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: $theme-color;
     border-radius: 5px;
 }

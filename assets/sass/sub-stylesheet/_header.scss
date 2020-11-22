@@ -86,7 +86,10 @@ header {
                                 padding: 28px 12px;
                             } 
                             &:hover {
-                                color: $theme-color;
+                                color: $white-color;
+                                @include breakpoint (lg) {
+                                    color: $theme-color;
+                                }
                                 &::after {
                                     transform: scale(1);
                                     -moz-transform: scale(1);
@@ -179,22 +182,6 @@ header {
             z-index: 11111;
             background: $white-color;
             box-shadow: 0px 0 10px rgba(136, 136, 136, 0.10);
-            // .header-item {
-            //     .header-menu {
-            //         .main-menu {
-            //             ul.menu-list {
-            //                 a {
-            //                     color: $white-color;
-            //                 }
-            //             }
-            //         }
-            //     }
-            //     .mobile-bar {
-            //         span {
-            //             background: $white-color;
-            //         }
-            //     }
-            // }
         }
     }
 }
