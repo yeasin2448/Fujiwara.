@@ -1639,6 +1639,10 @@ label.col-form-label h5 {
   font-weight: 400;
 }
 
+.location {
+  height: 350px;
+}
+
 .table-theme {
   font-size: 14px;
   background-color: #DCDCD9;
